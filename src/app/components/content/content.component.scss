@@ -1,0 +1,17 @@
+:host {
+  margin-left: 16px;
+  margin-right: 16px;
+  padding-top: 25vh;
+  margin-bottom: 16px;
+
+  background-size: 25vh, 10vh;
+
+  .powered-by {
+    display: flex;
+    justify-content: center;
+    color: #2a72b8;
+    padding-bottom: 5px;
+    margin-top: 10vh; // todo: fix
+    margin-bottom: 5vh;
+  }
+}

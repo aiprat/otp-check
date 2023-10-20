@@ -1,0 +1,84 @@
+<mdc-top-app-bar fixed>
+  <mdc-top-app-bar-row>
+    <mdc-top-app-bar-section
+      align="start"
+      [title]="'verifyCodeScreen.' + back + 'Title' | translate"
+    >
+      <button mdcTopAppBarNavIcon [routerLink]="['/' + back]">
+        <mdc-icon>navigate_before</mdc-icon>
+      </button>
+    </mdc-top-app-bar-section>
+  </mdc-top-app-bar-row>
+</mdc-top-app-bar>
+
+<rm-content>
+  <p mdcBody1>
+    <mdc-icon>smartphone</mdc-icon>
+    <span translate>verifyCodeScreen.codePending</span>
+  </p>
+  <p mdcBody2 translate>verifyCodeScreen.info</p>
+
+  <form #form="ngForm" #keyboardOpen="keyboardOpen" (ngSubmit)="submit()">
+    <div class="code">
+      <mdc-form-field fluid>
+        <mdc-text-field
+          [name]="codeInputName"
+          [label]="'verificationFormSchema.verificationCode.label' | translate"
+          [class.mdc-text-field--invalid]="
+            (field.touched && field.invalid) || (invalidCode$ | async)
+          "
+          autocomplete="one-time-code"
+          [helperText]="helper"
+          required
+          [(ngModel)]="code"
+          minlength="6"
+          maxlength="6"
+          pattern="[0-9]*"
+          (input)="invalidCode$.next(false)"
+          #field="ngModel"
+          rmTrim
+        ></mdc-text-field>
+        <mdc-helper-text
+          #helper
+          validation
+          [class.hidden]="
+            (invalidCode$ | async) || field.valid || field.untouched
+          "
+        >
+          <span *ngIf="field.hasError('required')" translate
+            >verificationFormSchema.verificationCode.isRequired</span
+          >
+          <span *ngIf="field.hasError('pattern')" translate
+            >verificationFormSchema.verificationCode.invalidChars</span
+          >
+          <span
+            *ngIf="field.hasError('minlength') && !field.hasError('pattern')"
+            translate
+            >verificationFormSchema.verificationCode.invalidLength</span
+          >
+        </mdc-helper-text>
+      </mdc-form-field>
+    </div>
+
+    <button
+      type="submit"
+      mdc-button
+      raised
+      secondary
+      translate
+      [disabled]="form.disabled"
+    >
+      ui.submit
+    </button>
+
+    <button
+      type="button"
+      mdc-button
+      outlined
+      (click)="resend()"
+      [disabled]="resendDisabled"
+    >
+      {{ 'ui.resend' | translate: { valueSeconds: getResendCountdown() } }}
+    </button>
+  </form>
+</rm-content>

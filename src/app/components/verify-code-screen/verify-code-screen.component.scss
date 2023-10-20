@@ -1,0 +1,28 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+form {
+  .code {
+    grid-column: 1 / 13;
+  }
+
+  p {
+    grid-column: 1 / 13;
+    padding: 16px 0 0 0;
+  }
+}
+
+rm-content {
+  button + button,
+  p + button {
+    margin-top: 0;
+  }
+
+  .mdc-button:disabled {
+    color: #d6d8dc;
+    border-color: #d6d8dc;
+  }
+}

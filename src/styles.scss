@@ -1,0 +1,57 @@
+// /* You can add global styles to this file, and also import other style files */
+
+// @use 'variables';
+
+// @use '@material/theme' with
+//   (
+//     $primary: #122979,
+//     $secondary: #122979,
+//     $background: #fd7888,
+//     $error: #780202
+//   );
+
+// @use '@material/ripple/variables' as ripple with ($states-wash-duration: 200ms);
+
+@use '@material/top-app-bar/variables' as top-app-bar with
+  ($row-height: variables.$top-app-bar-row-height, $title-left-padding: 0);
+
+@use '@material/select/variables' as select with
+  (
+    $outline-label-offset: 12px,
+    $label-padding: 12px,
+    $disabled-fill-color: variables.$form-fill-color
+  );
+
+@use '@material/textfield/variables' as textfield with
+  ($label-offset: 12px, $input-padding: 12px, $helper-line-padding: 12px);
+
+@use '@material/typography/mdc-typography';
+@use '@material/elevation/mdc-elevation';
+@use '@material/top-app-bar/mdc-top-app-bar';
+@use '@material/icon-button/mdc-icon-button';
+@use '@material/select/mdc-select';
+@use '@material/list/mdc-list';
+@use '@material/menu-surface/mdc-menu-surface';
+@use '@material/menu/mdc-menu';
+@use '@material/textfield/mdc-text-field';
+@use '@material/form-field/mdc-form-field';
+@use '@material/button/mdc-button';
+@use '@material/checkbox/mdc-checkbox';
+
+@use '@angular-mdc/theme/material';
+
+@import 'body';
+@import 'typography';
+@import 'top-app-bar';
+@import 'select';
+@import 'textfield';
+@import 'button';
+@import 'checkbox';
+@import 'floating-label';
+@import 'helper-text';
+@import 'formfield';
+
+body {
+  background-size: cover;
+  background-attachment: fixed;
+}

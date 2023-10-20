@@ -1,0 +1,40 @@
+@use '@material/button/mixins' as button-mixins;
+@use '@material/theme';
+
+.mdc-button {
+  letter-spacing: 0.02857em;
+  border-radius: 100em;
+
+  &[secondary] {
+    @include button-mixins.container-fill-color(theme.$secondary);
+    @include button-mixins.disabled-container-fill-color(#8c8c8c);
+
+    transition: background-color 200ms linear;
+
+    &[unelevated] {
+      @include button-mixins.ink-color(#fff);
+    }
+  }
+
+  &[outlined] {
+    @include button-mixins.container-fill-color(#fff);
+  }
+
+  @include button-mixins.ink-color(#2a72b8);
+  @include button-mixins.outline-color(#2a72b8);
+
+  @include button-mixins.disabled-ink-color(#8c8c8c);
+  @include button-mixins.disabled-outline-color(#8c8c8c);
+
+  form & {
+    margin-top: 16px;
+  }
+
+  footer & {
+    height: 100%;
+    padding: 6px 16px;
+
+    font-weight: 400;
+    text-transform: none;
+  }
+}

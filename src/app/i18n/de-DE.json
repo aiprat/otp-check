@@ -1,0 +1,110 @@
+{
+  "de_DE": {
+    "loginScreen": {
+      "title": "Willkommen",
+      "info": "Los geht’s! Um alle Vorteile von regiomove nutzen und alle Anbieter buchen zu können, melden Sie sich bitte mit Ihrer Handynummer an oder legen Sie ein Konto an."
+    },
+    "loginFormSchema": {
+      "countryCode": {
+        "label": ""
+      },
+      "cellPhoneNumber": {
+        "label": "Handynummer",
+        "isRequired": "Pflichtfeld",
+        "isInvalid": "Keine valide Handynummer."
+      }
+    },
+    "logoutScreen": {
+      "title": "Auf Wiedersehen",
+      "content": "Sie sind jetzt abgemeldet."
+    },
+    "operatorLoginFormSchema": {
+      "userName": {
+        "label": "Benutzername",
+        "isRequired": "Pflichtfeld"
+      },
+      "password": {
+        "label": "Passwort",
+        "isRequired": "Pflichtfeld"
+      }
+    },
+    "registerScreen": {
+      "title": "Konto anlegen",
+      "info": "Zum Anlegen eines neuen Kontos benötigen wir noch Ihre Emailadresse.",
+      "redirectFromLoginInfo": "Für diese Handynummer existiert noch kein Konto. Bitte registrieren Sie sich zunächst."
+    },
+    "registrationFormSchema": {
+      "countryCode": {
+        "label": ""
+      },
+      "cellPhoneNumber": {
+        "label": "Handynummer",
+        "isRequired": "Pflichtfeld",
+        "isInvalid": "Keine valide Handynummer."
+      },
+      "email": {
+        "label": "E-Mail-Adresse",
+        "isRequired": "Pflichtfeld",
+        "isInvalid": "Keine valide E-Mail-Adresse."
+      },
+      "termsOfService": {
+        "label": "Ich stimme den <a href=\"https://www.kvv.de/fahrkarten/verkauf/regiomove/allgemeine-geschaeftsbedingungen.html\" target=\"_blank\">regiomove AGB</a> zu und habe die <a href=\"https://www.kvv.de/unternehmen/rechtliche-hinweise/informationspflicht-nach-dsgvo/regiomove-datenschutzbestimmungen.html\" target=\"_blank\">Datenschutzhinweise</a> zur Kenntnis genommen.",
+        "mustBeChecked": "Die AGBs und Datenschutzhinweise müssen akzeptiert werden."
+      },
+      "newsletter": {
+        "label": "Der KVV darf mir Angebote und News an meine E-Mail-Adresse schicken."
+      },
+      "account": {
+        "isDuplicate": "Die Kombination der Email-Adresse und Handynummer ist nicht zulässig."
+      }
+    },
+    "verifyCodeScreen": {
+      "loginTitle": "Anmeldung",
+      "registerTitle": "Registrierung",
+      "codePending": "Handynummer bestätigen",
+      "info": "Der Verifizierungscode wurde an Ihre Handynummer verschickt. Bitte tragen Sie den Code ein."
+    },
+    "verificationFormSchema": {
+      "verificationCode": {
+        "label": "Verifizierungscode",
+        "isRequired": "Verifizierungscode wird benötigt.",
+        "isInvalid": "Verifizierungscode ist nicht korrekt.",
+        "invalidChars": "Verifizierungscode enthält invalide Zeichen.",
+        "invalidLength": "Länge des Verifizierungscode ist nicht korrekt.",
+        "invalidCode": "Falscher Verifizierungscode",
+        "tooManyRequest": "Der Verifizierungscode wurde bereits angefordert. Bitte versuchen Sie es später erneut."
+      }
+    },
+    "verifyEMailScreen": {
+      "title": "Registrierung",
+      "info": "Wir haben Ihnen einen Verifizierungslink an die angegebene E-Mail-Adresse gesendet. Bitte klicken Sie auf den Link in der Email, um Ihre E-Mail-Adresse zu bestätigen.",
+      "emailVerifiedInfo": "Bitte benutzen Sie die App, um Ihre Registrierung abzuschließen.",
+      "codeVerified": "Handynummer bestätigt",
+      "emailPending": "E-Mail bestätigen",
+      "emailVerified": "E-Mail bestätigt."
+    },
+    "verifyEMailConfirmationScreen": {
+      "title": "Registrierung",
+      "info": "Wir haben Ihnen einen Verifizierungslink an die angegebene E-Mail-Adresse gesendet. Bitte klicken Sie auf den Link in der Email, um Ihre E-Mail-Adresse zu bestätigen."
+    },
+    "redirectScreen": {
+      "title": "Bitte warten"
+    },
+    "ui": {
+      "submit": "Anmelden",
+      "register": "Registrieren",
+      "registerandlogin": "Konto anlegen & anmelden",
+      "skipLogin": "Abbrechen",
+      "skipRegister": "Abbrechen",
+      "resend": "Erneut senden{{valueSeconds}}",
+      "cancel": "Abbrechen",
+      "postpone": "E-Mail später verifizieren",
+      "formInvalid": "Bitte füllen Sie zuerst alle Felder korrekt aus.",
+      "close": "Fenster schließen"
+    },
+    "errorScreen": {
+      "title": "Fehler",
+      "content": "Es ist ein Fehler aufgetreten. Bitte versuchen Sie es noch einmal."
+    }
+  }
+}

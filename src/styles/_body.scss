@@ -1,0 +1,62 @@
+@use '@material/top-app-bar/variables' as top-app-bar-variables;
+@use '@material/theme';
+
+@import 'typeface-roboto/index.css';
+@import 'material-design-icons/iconfont/material-icons.css';
+
+body {
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+
+  color: #000;
+}
+
+p {
+  margin: 0;
+  padding-top: 8px;
+
+  &:not(:last-child) {
+    padding-bottom: 16px;
+  }
+
+  display: flex;
+  align-items: center;
+
+  mdc-icon {
+    margin-right: 20px;
+  }
+}
+
+a {
+  color: #2a72b8;
+}
+
+form {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-gap: 16px;
+
+  button {
+    grid-column: 1 / 13;
+  }
+}
+
+footer {
+  background-color: theme.$background;
+  box-shadow: 0 -2px 4px -1px rgba(0, 0, 0, 0.2);
+
+  margin-top: auto;
+  height: top-app-bar-variables.$row-height;
+
+  position: sticky;
+  bottom: 0;
+
+  display: flex;
+  justify-content: flex-end;
+}
+
+p,
+footer {
+  flex-shrink: 0;
+}

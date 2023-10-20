@@ -1,0 +1,19 @@
+// @use 'variables';
+
+:host {
+  display: flex;
+  flex-direction: column;
+
+  box-sizing: border-box;
+
+  width: 100vw;
+  height: 100vh;
+  // padding-top: variables.$top-app-bar-row-height;
+
+  @media (min-width: 960px) {
+    max-width: 400px;
+    max-height: 960px;
+  }
+
+  user-select: none;
+}
