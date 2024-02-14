@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard</title>
+<style>
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .box {
+    width: 200px;
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+<div class="container" id="dashboard">
+  <!-- Boxes will be dynamically added here -->
+</div>
+
+<script>
+const jsonData = {
+    "charging": false,
+    "driving": false,
+    "online": true,
+    "sleeping": false,
+    "falling_asleep": true,
+    "speed": 0,
+    "power": 0,
+    "odometer": 18874.6261116565,
+    "ideal_battery_range_km": 303.55446528000004,
+    "battery_range_km": 303.55504771714118,
+    "outside_temp": 10.5,
+    "battery_level": 76,
+    "charger_voltage": 0,
+    "charger_phases": 0,
+    "charger_actual_current": 0,
+    "charge_energy_added": 0.0,
+    "charger_power": 0,
+    "charge_rate_km": 0.0,
+    "charge_port_door_open": false,
+    "time_to_full_charge": 0.0,
+    "fast_charger_brand": "",
+    "fast_charger_present": false,
+    "car_version": "2023.44.30.9 eef969740612",
+    "trip_start": "13:34",
+    "trip_start_dt": "2024-02-13T12:34:04Z",
+    "trip_max_speed": 0.0,
+    "trip_max_power": 1.0,
+    "trip_duration_sec": 32,
+    "trip_kwh": -0.022408319101287134,
+    "trip_avg_kwh": -22421.670320967369,
+    "trip_distance": 0.00099940453947056085,
+    "ts": "2024-02-14T10:32:14Z",
+    "latitude": 48.994699,
+    "longitude": 8.349965,
+    "charge_limit_soc": 100,
+    "inside_temperature": 12.7,
+    "battery_heater": false,
+    "is_preconditioning": false,
+    "sentry_mode": false,
+    "country_code": "de",
+    "state": "Baden-Württemberg",
+    "display_name": "T-RED",
+    "heading": 0,
+    "software_update_status": "",
+    "software_update_version": " ",
+    "active_route_destination": null,
+    "active_route_energy_at_arrival": null,
+    "active_route_minutes_to_arrival": null,
+    "active_route_traffic_minutes_delay": 0.0,
+    "active_route_latitude": 48.99461,
+    "active_route_longitude": 8.34996,
+    "open_windows": 0,
+    "open_doors": 0,
+    "frunk": 0,
+    "trunk": 0,
+    "locked": true,
+    "TLGeofence": "Home",
+    "TLGeofenceIsHome": true,
+    "TLGeofenceIsCharger": false,
+    "TLGeofenceIsWork": false
+};
+
+function createDashboard() {
+  const dashboard = document.getElementById('dashboard');
+
+  const groups = {
+    "TLGeofence": ["TLGeofence", "TLGeofenceIsHome", "TLGeofenceIsCharger", "TLGeofenceIsWork"],
+    "Location": ["latitude", "longitude"],
+    "Software Update": ["software_update_status", "software_update_version"],
+    "Trip Information": ["trip_start", "trip_start_dt", "trip_max_speed", "trip_max_power", "trip_duration_sec", "trip_kwh", "trip_avg_kwh", "trip_distance"],
+    "Battery and Charger": ["charging", "battery_level", "charger_voltage", "charger_phases", "charger_actual_current", "charge_energy_added", "charger_power", "charge_rate_km", "charge_port_door_open"]
+  };
+
+  for (const groupName in groups) {
+    const keys = groups[groupName];
+    const values = keys.map(key => jsonData[key]);
+    const icon = getIconGroup(groupName);
+    const box = createGroupBox(groupName, values, icon);
+    dashboard.appendChild(box);
+  }
+}
+
+function createGroupBox(groupName, values, icon) {
+  const box = document.createElement('div');
+  box.className = 'box';
+  const iconElement = document.createElement('i');
+  iconElement.className = `fas ${icon}`;
+  box.appendChild(iconElement);
+  const titleElement = document.createElement('h3');
+  titleElement.textContent = groupName;
+  box.appendChild(titleElement);
+  values.forEach(value => {
+    const p = document.createElement('p');
+    p.textContent = value;
+    box.appendChild(p);
+  });
+  return box;
+}
+
+function getIconGroup(groupName) {
+  switch(groupName) {
+    case 'TLGeofence':
+      return 'fa-map-marker-alt';
+    case 'Location':
+      return 'fa-location-arrow';
+    case 'Software Update':
+      return 'fa-download';
+    case 'Trip Information':
+      return 'fa-road';
+    case 'Battery and Charger':
+      return 'fa-battery-full';
+    default:
+      return 'fa-info-circle';
+  }
+}
+
+// Create dashboard
+createDashboard();
+</script>
+
+<!-- Font Awesome CDN for icons -->
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+</body>
+</html>
